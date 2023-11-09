@@ -1,0 +1,10 @@
+div {
+    background-image: url('https://images.unsplash.com/photo-1628771065518-0d82f1938462?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1lZGljaW5lfGVufDB8fDB8fHww&w=1000&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.table-bordered {
+    background-image: url('https://images.unsplash.com/photo-1628771065518-0d82f1938462?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1lZGljaW5lfGVufDB8fDB8fHww&w=1000&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

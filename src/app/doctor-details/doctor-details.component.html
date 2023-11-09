@@ -1,0 +1,42 @@
+<!-- <button type="button" class="btn btn-primary-outline pull-right" (click)="btnClick();"><i class="fa fa-plus"></i> Add</button>     -->
+<h3 class="text-center my-5 items_title">Online Doctor Consultant</h3>
+<form>
+<div class="container">
+    <div class="card items_card">
+        <div class="card-body">
+            
+        
+    <table class="table table-striped text-center">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Speciality</th>
+            <th>Experience</th>
+            <th>Availability</th>  
+            <th>PatientReviews</th>
+        </tr>
+        <tr *ngFor="let Doctor of Doctor">
+            <td>{{Doctor.id}}</td>
+            <td>{{Doctor.name}}</td>
+            <td><img [src]="Doctor.photo" alt="NoImage found"  height="100px" width="90px" class="image"></td>
+            <td>{{Doctor.speciality}}</td>
+            <td>{{Doctor.experience}}</td>
+            <td>{{Doctor.availability}}</td>
+            <td>{{Doctor.patientreviews}}</td>
+            <td>
+                <div class="button">
+                    <button  style="background-color: rgb(72, 202, 111); " type="submit"><a [routerLink]="'/book'"><span style="color: aliceblue;">Proceed</span></a> </button>
+                
+                </div> 
+            </td>
+            
+        </tr>
+    </table>
+
+</div>
+</div>
+</div>
+
+
+

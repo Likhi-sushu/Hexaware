@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="search-Doctor">
+            <input type="text" [(ngModel)]="searchTerm" placeholder="Search..." (input)="filterData()">&nbsp;&nbsp;&nbsp;&nbsp;
+            <select [(ngModel)]="selectedCategory" (change)="filterData()">&nbsp;&nbsp;&nbsp;&nbsp;
+            <option value="">All Departments</option>
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
+        </div>
+        </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Doctor Name</th>
+          <th>Departments</th>
+          <th>Click here to Book appointment</th>
+          <th>Feedback</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of filteredItems">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.dept}}</td>
+          
+          <td><button  style="background-color: rgb(19, 168, 19); " type="submit"><a [routerLink]="'/book'"><span style="color: aliceblue;">Proceed</span></a> </button>
+                
+          </td> <td>{{item.feed}}</td>
+          <!-- <td><button  style="background-color: rgb(47, 95, 167); " type="submit"><a [routerLink]="'/feedback-form'"><span style="color: aliceblue;">Feedback</span></a> </button>
+                
+          </td> -->
+        </tr>
+        </tbody>
+      </table>
+   
+</div>

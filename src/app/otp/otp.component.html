@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>OTP Verification</h2>
+    <h5>Generated OTP: <span>{{ otp }}</span></h5>
+  
+   <div>
+    <button class="button" (click)="generateOTP()" style="background-color: rgb(6, 146, 48); color: antiquewhite;">Generate New OTP</button>
+   </div>
+    <br>
+    <!-- <button (click)="copyToClipboard()">Copy OTP to Clipboard</button> -->
+  
+    <div>
+      <input type="text" placeholder="Enter OTP" [(ngModel)]="enteredOtp">
+      <button  class="button" (click)="verifyOTP()" style="background-color: #008CBA; color: antiquewhite;">Verify OTP</button>
+    </div>
+  </div>

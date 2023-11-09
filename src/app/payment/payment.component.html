@@ -1,0 +1,128 @@
+<div class="container py-5">
+  
+    <div class="row">
+      <div class="col-lg-7 mx-auto">
+        <div class="bg-white rounded-lg shadow-sm p-5">
+          <!-- Credit card form tabs -->
+          <ul role="tablist" class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
+            <li class="nav-item">
+              <a data-toggle="pill" href="#nav-tab-card" class="nav-link active rounded-pill">
+                                  <i class="fa fa-credit-card"></i>
+                                  Credit Card
+                              </a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="pill" href="#nav-tab-paypal" class="nav-link rounded-pill">
+                                 
+                                UPI PAYMENT
+                              </a>
+            </li>
+            <li class="nav-item">
+              <a data-toggle="pill" href="#nav-tab-bank" class="nav-link rounded-pill">
+                                  <i class="fa fa-university"></i>
+                                   NetBanking
+                               </a>
+            </li>
+          </ul>
+          <!-- End -->
+  
+  
+          <!-- Credit card form content -->
+          <div class="tab-content">
+  
+            <!-- credit card info-->
+            <div id="nav-tab-card" class="tab-pane fade show active">
+              <form [formGroup]="registerForm" #usersForm="ngForm" (ngSubmit)="onSubmit(usersForm.value)">
+                <div class="row">
+                    <div >
+                    <h3 class="my-3 text-white font-weight-medium text-uppercase"></h3>
+                    <div class="bg-white">
+                        <div class="form-row  "><br>
+                            <label class="text-inverse font-12 text-uppercase">FullName<span class="text-danger">   *</span></label>
+                                  <input type="text" ngModel class="border-0 p-0 font-14 form-control" placeholder="Name(on the card)" formControlName="fname"  [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" />
+                            <div *ngIf="submitted && f.fname.errors" class="invalid-feedback mb">
+                                <div *ngIf="f.fname.errors.required">Fullname is required.</div>
+                            </div>
+                        </div> 
+
+                        <div >
+                        <label class="text-inverse font-12 text-uppercase">Card Number<span class="text-danger">   *</span></label>
+                        <input type="text" ngModel class="border-0 p-0 font-14 form-control"  minlength="16" maxlength="16" placeholder="1234 5678 9012 4321" formControlName="phone"  [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback mb">
+                            <div *ngIf="f.phone.errors.required">Cardnumber is required.</div>
+                         </div>
+                        </div>
+                        <div class="form-row border-bottom input-group">
+                            <div ngModel class="p-4 left ">
+                               <div class="cvv"> <label class="text-inverse font-12 text-uppercase">Expire Month and Year<span class="text-danger">   *</span></label>
+                                <label class="text-inverse font-12 text-uppercase">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CVV<span class="text-danger">   *</span></label></div>
+                                <div class="input-group">
+                                <input  type="text" ngModel class="border-0   border-right  p-0 font-14 form-control" placeholder="  MM" formControlName="age"  [ngClass]="{ 'is-invalid': submitted && f.phone.errors } " />
+                                <input type="text" ngModel class="border-0  border-right p-0 font-14 form-control"  placeholder="    YY" formControlName="age"  [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                                <input type="text" ngModel class="border-0  p-0 font-14 form-control"  placeholder="CVV" formControlName="age"  [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+
+                               </div>
+                                <div *ngIf="submitted && f.age.errors" class="invalid-feedback mb">
+                                    <div *ngIf="f.age.errors.required">date and year are required.</div>
+                                 </div>
+                                </div>
+                        </div>
+                          </div>
+                        <div>
+                        <button  type="submit" class="w-100 m-0 border-0 py-4 font-14 font-weight-medium btn btn-danger-gradiant btn-block position-relative rounded-0 text-center text-white text-uppercase confirm">
+                         Proceed to Payment  <a [routerLink]="'/payment'"></a>
+                                        </button>
+                        </div>
+                   
+                    </div>
+                </div>
+                </form>  
+            </div>
+            <!-- End -->
+  
+            <!-- Paypal info -->
+            <div id="nav-tab-paypal" class="tab-pane fade app">
+             
+             <div>
+              <h2 class="btn btn-success rounded-pill">Pay online with UPI payments through ... </h2>
+             </div>
+              <br>
+              <div class="banking">
+                <p>
+                    <button type="button" class="btn btn-light rounded-pill"><a href="https://pay.google.com/about/" target="_blank"><img src="https://1000logos.net/wp-content/uploads/2023/03/Google-Pay-logo.png"  height="50px" width="70px"></a></button>
+                  </p>
+                  <p>
+                    <button type="button" class="btn btn-light rounded-pill"><a href="https://www.phonepe.com/" target="_blank"><img src="https://cdn.worldvectorlogo.com/logos/phonepe-1.svg" height="50px" width="70px"></a></button>
+                  </p>
+                  <p>
+                    <button type="button" class="btn btn-light rounded-pill"><a href="https://paytm.com/login" target="_blank"><img src="https://play-lh.googleusercontent.com/6_Qan3RBgpJUj0C2ct4l0rKKVdiJgF6vy0ctfWyQ7aN0lBjs78M-1cQUONQSVeo2jfs" height="50px" width="70px"></a></button>
+                  </p>
+              </div>
+            </div>
+            <!-- End -->
+  
+            <!-- bank transfer info -->
+            <div id="nav-tab-bank" class="tab-pane fade banking">
+              
+                <p>
+                    <button type="button" class="btn btn-light rounded-pill"><a href="https://www.hdfcbank.com/personal/ways-to-bank/online-banking/net-banking" target="_blank"><img src="data:image/png;base64,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" height="50px" width="70px"></a></button>
+                  </p>
+                  <p>
+                    <button type="button" class="btn btn-light rounded-pill"><a href="https://retail.onlinesbi.sbi/retail/login.htm" target="_blank"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRTi6qphifSKq9PX3DvCa40jF3fNa52FftOw&usqp=CAU" height="50px" width="70px"></a></button>
+                  </p>
+                  <p>
+                    <button type="button" class="btn btn-light rounded-pill"><a href="https://www.icicibank.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/ICICI_Bank_Logo.svg/2560px-ICICI_Bank_Logo.svg.png" height="50px" width="70px"></a></button>
+                  </p>
+                  <p>
+                    <button type="button" class="btn btn-light rounded-pill"><a href="https://www.axisbank.com/" target="_blank"><img src="https://www.axisbank.com/images/default-source/revamp_new/progresswithus/axis-bank-grab-deals-fest-logo-800x533.jpg" height="50px" width="70px"></a></button>
+                  </p>
+            </div>
+            <!-- End -->
+          </div>
+          <!-- End -->
+  
+        </div>
+      </div>
+    </div>
+  </div>
+ 

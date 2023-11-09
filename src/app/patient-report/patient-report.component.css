@@ -1,0 +1,78 @@
+/* Style for the entire table */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Remove borders between table cells */
+    margin: 20px 0; /* Margin on top and bottom */
+    font-family: Arial, sans-serif; /* Use Arial font */
+}
+
+/* Header styles */
+thead th {
+    background-color: #f2f2f2; /* Light gray background */
+    padding: 10px 15px; /* Add some padding to headers */
+    text-align: left; /* Left align header text */
+    border-bottom: 2px solid #ddd; /* Add a bottom border to header cells */
+}
+
+/* Body styles */
+tbody tr {
+    border-bottom: 1px solid #ddd; /* Add a bottom border to rows */
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5; /* Change row background on hover */
+}
+
+/* Cell styles */
+td {
+    padding: 10px 15px; /* Add some padding to cells */
+}
+/* Base styling for all buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Styling for different button actions */
+button.edit {
+    background-color: #6fb7e7; /* Yellow color for edit */
+    color: #000;
+}
+
+button.edit:hover {
+    background-color: #E0A800; /* Darker yellow on hover */
+}
+
+button.cancel {
+    background-color: #ce7829; /* Red color for cancel */
+    color: #FFF;
+}
+
+button.cancel:hover {
+    background-color: #E04E1E; /* Darker red on hover */
+}
+
+button.delete {
+    background-color: #D43F00; /* Deep red color for delete */
+    color: #FFF;
+}
+
+button.delete:hover {
+    background-color: #BF3600; /* Even darker red on hover */
+}
+
+button.add {
+    background-color: #4CAF50; /* Green color for adding a report */
+    color: #FFF;
+}
+
+button.add:hover {
+    background-color: #43A047; /* Darker green on hover */
+}
+svg path {
+    fill: #333; /* Change to any color you prefer */
+}

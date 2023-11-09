@@ -1,0 +1,15 @@
+h1 {
+            text-align: center;
+        }
+ 
+        #ex {
+            text-align: center;
+            background-image:url("https://apollochennai.blob.core.windows.net/chennaistorage/2023/09/instituteexpertises-1024x499-1.webp");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+           
+        }
+        a{
+            color: black;
+        }

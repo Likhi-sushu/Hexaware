@@ -1,0 +1,49 @@
+<div class="content">
+  <form [formGroup]="prescriptionForm" (ngSubmit)="submitPrescription()">
+
+    <div class="form-group">
+      <label>Patient Name: </label>
+      <input type="text" formControlName="patientName">
+    </div>
+
+    <div formArrayName="medications" *ngFor="let medicationControl of medications.controls; let i = index">
+      <div [formGroupName]="i">
+        <h4>Medication {{ i + 1 }}</h4>
+
+        <div class="form-group">
+          <label>Medicine Name : </label>
+          <select formControlName="medName">
+            <option *ngFor="let med of medicationsList" [value]="med">{{ med }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Strength&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label>
+          <select formControlName="strength">
+            <option *ngFor="let strength of strengthsList" [value]="strength">{{ strength }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Dosage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label>
+          <select formControlName="dosage">
+            <option *ngFor="let dosage of dosagesList" [value]="dosage">{{ dosage }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Frequency&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label>
+          <input type="text" formControlName="frequency">
+        </div>
+
+        <button type="button" (click)="removeMedication(i)">Remove Medication</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button type="button" (click)="addMedication()">Add Medication</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="submit">Submit Prescription</button>
+    </div>
+
+  </form>
+</div>

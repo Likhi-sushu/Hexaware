@@ -1,0 +1,85 @@
+<div class="banner3">
+    <div class="py-5 banner" style="background-image: url(https://img.freepik.com/free-vector/clean-medical-background_53876-116875.jpg?size=626&ext=jpg&ga=GA1.1.1740824250.1678456628&semt=ais);">
+      <div class="container" >
+        <div class="alert alert-danger" *ngIf="duplicateUserError">
+          You are already a registered user. Please try to log in.
+      </div>
+      
+          <form [formGroup]="form" #usersForm="ngForm" (ngSubmit)="OnSubmit(usersForm.value)" class="form-signup">  
+              <div class="row">
+              <div class="col-md-7 ">
+              <h3  style="color: rgb(24, 90, 165);">SIGN UP</h3>
+              <div class="bg-white">
+                  <div class="form-row border-bottom p-4">
+                    <label class="text-inverse font-12 text-uppercase">Firstname<span class="text-danger">*</span></label>
+                    <input type="text" ngModel class="border-0 p-0 font-14 form-control" placeholder="Enter your Firstname" formControlName="firstname"  [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }" />
+                    <div *ngIf="submitted && f['firstname'].errors" class="invalid-feedback mb">
+                        <div *ngIf="f['firstname'].errors['required']">Firstname is required.</div>
+                     </div>
+                    </div>
+                    <div class="form-row border-bottom p-4">
+                      <label class="text-inverse font-12 text-uppercase">Lastname<span class="text-danger">*</span></label>
+                      <input type="text" ngModel class="border-0 p-0 font-14 form-control" placeholder="Enter your Lastname" formControlName="lastname"  [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }" />
+                      <div *ngIf="submitted && f['lastname'].errors" class="invalid-feedback mb">
+                          <div *ngIf="f['lastname'].errors['required']">Lastname is required.</div>
+                       </div>
+                      </div>
+                  <div class="form-row border-bottom p-4 position-relative">
+                    <label class="text-inverse font-12 text-uppercase">DOB<span class="text-danger">*</span></label>
+                    <div class="input-group date">
+                        <input type="date" ngModel class="border-0 p-0 font-14 form-control" id="dp" placeholder="Date of Birth" formControlName="dob"  [ngClass]="{ 'is-invalid': submitted && f['dob'].errors}" />
+                        <div *ngIf="submitted && f['dob'].errors" class="invalid-feedback mb">
+                            <div *ngIf="f['dob'].errors['required']">Date of Birth is required.</div>
+                         </div>
+                    </div>
+                  </div>
+                  <div class="form-row border-bottom p-4">
+                    <label class="text-inverse font-12 text-uppercase">Phonenumber<span class="text-danger">*</span></label>
+                    <input type="text" ngModel class="border-0 p-0 font-14 form-control" placeholder="Enter your Phone Number" formControlName="phonenumber"  [ngClass]="{ 'is-invalid': submitted && f['phonenumber'].errors }" />
+                    <div *ngIf="submitted && f['phonenumber'].errors" class="invalid-feedback mb">
+                      <div *ngIf="f['phonenumber'].errors['required']">Phone is required.</div>
+                      <div *ngIf="f['phonenumber'].errors['pattern']">Phone number must be exactly 10 digits.</div>
+                  </div>
+                  
+                    </div>
+                  <div class="form-row border-bottom p-4">
+                      <label class="text-inverse font-12 text-uppercase">Email<span class="text-danger">*</span></label>
+                      <input type="text" ngModel class="border-0 p-0 font-14 form-control" placeholder="Enter your Mail" formControlName="email"  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback mb">
+                        <div *ngIf="f['email'].errors['required']">Email is required.</div>
+                        <div *ngIf="f['email'].errors['pattern']">Email should be in the format "@gmail.com".</div>
+                    </div>                    
+                  </div>
+                  <div class="form-row border-bottom p-4">
+                    <label class="text-inverse font-12 text-uppercase">Password<span class="text-danger">*</span></label>
+                    <input type="password" ngModel class="border-0 p-0 font-14 form-control" placeholder="Password" formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback mb">
+                        <div *ngIf="f['password'].errors['required']">Password is required.</div>
+                     </div>
+                    </div>
+                    <div class="form-row border-bottom p-4">
+                      <label class="text-inverse font-12 text-uppercase">UserType<span class="text-danger">*</span></label>
+                      <input type="usertype" ngModel class="border-0 p-0 font-14 form-control" placeholder="usertype" formControlName="usertype"  [ngClass]="{ 'is-invalid': submitted && f['usertype'].errors }" />
+                      <div *ngIf="submitted && f['usertype'].errors" class="invalid-feedback mb">
+                          <div *ngIf="f['usertype'].errors['required']">Usertypeis required.</div>
+                       </div>
+                      </div>
+                        </div>
+                        <!-- <button  type="submit"  class="w-100 m-0 border-0 py-4 font-14 font-weight-medium btn btn-danger-gradiant btn-block position-relative rounded-0 text-center text-white text-uppercase">
+                          Book Your Appointment Now
+                                        </button> -->
+                     
+                        <button
+                        class="btn btn-primary btn-block btn-lg btn-signup"
+                        type="submit"
+                       >
+                        Sign Up
+                      </button>
+              
+                    <a class="forgot-password" routerLink="/login">Already a User ?</a>
+                  </div>               
+                  </div>
+          </form>  
+      </div>
+    </div>
+ 

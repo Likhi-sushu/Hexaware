@@ -1,0 +1,34 @@
+<input [(ngModel)]="searchTerm" placeholder="Search reports..." (input)="filterReports()">
+&nbsp;
+<button class="add" (click)="addReport()">Add Report</button>
+
+<table>
+  <!-- ... -->
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Diagnosis</th>
+    <th>Notes</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let report of filteredReports">
+        <td>{{ report.id }}</td>
+        <td>{{ report.name }}</td>
+        <td>{{ report.age }}</td>
+        <td>{{ report.diagnosis }}</td>
+            <td>
+              <div *ngIf="!report.isEditing">{{ report.notes }}</div>
+              <input *ngIf="report.isEditing" [(ngModel)]="report.notes">
+            </td>
+            <td>
+              <button *ngIf="!report.isEditing" class="edit" (click)="editMode(report, true)">Edit</button>&nbsp;
+              <button *ngIf="report.isEditing" class="add" (click)="editMode(report, false)">Save</button>&nbsp;
+              <button *ngIf="report.isEditing"  class="cancel" (click)="report.isEditing = false">Cancel</button>&nbsp;
+              <button  class="delete" (click)="removeReport(report.id)">Delete</button>
+            </td>
+            <td>
+            <button class="delete" (click)="downloadPDF(report)">Download Report</button></td>
+         </tr>
+  </tbody>
+</table>

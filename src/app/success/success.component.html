@@ -1,0 +1,32 @@
+<div class="search-container">
+ <input type="text" [(ngModel)]="searchTerm" placeholder="Search..." class="form-control">&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+<!-- ... Rest of the table code ... -->
+<br>
+<div>
+<table class="table table-bordered"> 
+  <thead>
+    <th style="width:1%;">Id</th>
+    <th style="width:1%;">Name</th>
+    <th style="width:1%;">Age</th>
+    <th style="width:1%;">Diagnosis</th>
+    <th style="width:1%;">LastVisit</th>
+    <th style="width:2%;">OtherHealthInfo</th>
+    <th style="width:1%;">CheckUp Date</th>
+  
+   <!-- <th style="width:5%;">Status</th> -->
+    
+</thead>
+  <tbody>
+    <tr *ngFor="let patient of filteredPatients">
+      <td>{{ patient.id }}</td>
+      <td>{{ patient.name }}</td>
+      <td>{{ patient.age }}</td>
+      <td>{{ patient.diagnosis }}</td>
+      <td>{{ patient.lastVisitedDate }}</td>
+      <td>{{ patient.otherHealthInfo }}</td>
+      <td>{{ patient.checkUpDate }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

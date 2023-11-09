@@ -1,0 +1,46 @@
+<div class="banner3">
+    <div class="py-5 banner"  style="background-image:url(https://media.istockphoto.com/id/1277188775/photo/we-want-your-feedback-speech-bubble-concept.jpg?b=1&s=612x612&w=0&k=20&c=6qZ-v0JgU6KnPZRy8CLhLZIPlbGVy2WO49fap67tmcg=);">
+      <div class="container">
+          <form [formGroup]="registerForm" #usersForm="ngForm" (ngSubmit)="onSubmit(usersForm.value)">
+          <div class="row">
+              <div class="col-md-7 col-lg-5">
+              <h3 class="my-3 text-white font-weight-medium text-uppercase">Feedback</h3>
+              <div class="bg-white">
+                  <div class="form-row border-bottom p-4 "><br>
+                      <label class="text-inverse font-12 text-uppercase">Name<span class="text-danger">*</span></label>
+                            <input type="text" ngModel class="border-0 p-0 font-14 form-control" placeholder="FullName" formControlName="fname"  [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" />
+                      <div *ngIf="submitted && f.fname.errors" class="invalid-feedback mb">
+                          <div *ngIf="f.fname.errors.required">Name is required.</div>
+                       
+                  </div>
+                  
+                  </div>
+                  <div class="form-row border-bottom p-4">
+                    <label class="text-inverse font-12 text-uppercase">Feedback<span class="text-danger">*</span></label>
+                    <textarea col="1" row="1" ngModel class="border-0 p-0 font-weight-light font-14 form-control" placeholder="Comment your Feedback..." formControlName="message"  [ngClass]="{ 'is-invalid': submitted && f.message.errors }"></textarea>
+                    <div *ngIf="submitted && f.message.errors" class="invalid-feedback mb">
+                        <div *ngIf="f.message.errors.required">Comments must be required.</div>
+                     </div>
+                    </div>                
+                        <div class="p-4 right w-50">
+                            <label class="text-inverse font-12 text-uppercase">Rating<span class="text-danger">*</span></label>
+                            <input type="number" ngModel class="border-0 p-0 font-14 form-control" min="1" max="5" placeholder="Rate us" formControlName="age"  [ngClass]="{ 'is-invalid': submitted && f.age.errors }" />
+                            <div *ngIf="submitted && f.age.errors" class="invalid-feedback mb">
+                                <div *ngIf="f.age.errors.required">Rate must be required.</div>
+                             </div>
+                            </div>
+                    </div>
+                  
+                  <div>
+                    <button  type="submit" style="color: blueviolet;" class="w-100 m-0 border-0 py-4 font-14 font-weight-medium btn btn-danger-gradiant btn-block position-relative rounded-0 text-center text-white text-uppercase">
+                        Submit Feedback
+                                      </button>
+                  </div>
+              </div>
+              </div>
+
+          </form>  
+          
+      </div>
+    </div>
+  </div>

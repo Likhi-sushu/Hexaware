@@ -1,0 +1,163 @@
+<div class="banner3">
+    <div class="py-5 banner"  style="background-image:url(https://img.freepik.com/free-photo/young-handsome-physician-medical-robe-with-stethoscope_1303-17818.jpg?w=1060&t=st=1693300663~exp=1693301263~hmac=0fefbf95d82accfa42c2fabda3ad95b20c35bd3386abe96e88cc011b0579c2d7);">
+      <div class="container">
+          <form [formGroup]="form" action="javascript:void(0)" #usersForm="ngForm" (ngSubmit)="onSubmit(usersForm.value)" (submit)="send()">
+          <div class="row">
+              <div class="col-md-7 col-lg-5">
+              <h3 class="my-3 text-white font-weight-medium text-uppercase">Book Appointment</h3>
+              <div class="bg-white"> 
+                  <div class="form-row border-bottom p-4">
+                    <label class="text-inverse font-12 text-uppercase">Fullname<span class="text-danger">*</span></label>
+                    <input type="text" ngModel class="border-0 p-0 font-14 form-control" placeholder="Enter your Fullname" formControlName="phone"  [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }" />
+                    <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback mb">
+                        <div *ngIf="f['phone'].errors['required']">Fullname is required.</div>
+                     </div>
+                    </div>
+                 
+                  <div class="form-row border-bottom p-4">
+                  <label class="text-inverse font-12 text-uppercase">Phonenumber<span class="text-danger">*</span></label>
+                  <input type="text" ngModel class="border-0 p-0 font-14 form-control" placeholder="Enter your Phone Number" formControlName="from_name"  [ngClass]="{ 'is-invalid': submitted && f['from_name'].errors }" />
+                  <div *ngIf="submitted && f['from_name'].errors" class="invalid-feedback mb">
+                      <div *ngIf="f['from_name'].errors['required']">Phone is required.</div>
+                      <div *ngIf="f['from_name'].errors['pattern']">Phone number must be exactly 10 digits.</div>
+                   </div>
+                  </div>
+                  <div class="form-row border-bottom p-4 position-relative">
+                    <label class="text-inverse font-12 text-uppercase">DOB<span class="text-danger">*</span></label>
+                    <div class="input-group date">
+                        <input type="date" ngModel class="border-0 p-0 font-14 form-control" id="dp" placeholder="Select Date of Birth" formControlName="date"  [ngClass]="{ 'is-invalid': submitted && f['date'].errors}" />
+                        <div *ngIf="submitted && f['date'].errors" class="invalid-feedback mb">
+                            <div *ngIf="f['date'].errors['required']">Date of Birth is required.</div>
+                         </div>
+                    </div>
+                  </div>
+                  <div class="form-row border-bottom p-4">
+                      <label class="text-inverse font-12 text-uppercase">Email<span class="text-danger">*</span></label>
+                      <input type="text" ngModel class="border-0 p-0 font-14 form-control" placeholder="Enter your Mail" formControlName="email"  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback mb">
+                          <div *ngIf="f['email'].errors['required']">Email is required.</div>
+                          <div *ngIf="f['email'].errors['pattern']">Email should be in the format "@gmail.com".</div>
+                       </div>
+                  </div>
+                  <div class="form-row border-bottom p-4">
+                    <label class="text-inverse font-12 text-uppercase">Describe your problem<span class="text-danger">*</span></label>
+                    <textarea col="1" row="1" ngModel class="border-0 p-0 font-weight-light font-14 form-control" placeholder="Mention your health issue..." formControlName="message"  [ngClass]="{ 'is-invalid': submitted && f['message'].errors }"></textarea>
+                    <div *ngIf="submitted && f['message'].errors" class="invalid-feedback mb">
+                        <div *ngIf="f['message'].errors['required']">Message is required.</div>
+                     </div>
+                    </div>
+                  <div class="form-row border-bottom p-4 position-relative">
+                  <label class="text-inverse font-12 text-uppercase">Booking Date<span class="text-danger">*</span></label>
+                  <div class="input-group date">
+                      <input type="date" ngModel class="border-0 p-0 font-14 form-control" id="dp" placeholder="Select the Appointment Date" formControlName="booking"  [ngClass]="{ 'is-invalid': submitted && f['date'].errors }" />
+                      <div *ngIf="submitted && f['date'].errors" class="invalid-feedback mb">
+                          <div *ngIf="f['date'].errors['required']">Date is required.</div>
+                       </div>
+                  </div>
+                  </div>
+                  <div class="form-row border-bottom">
+                    <div class="p-4 left border-right w-50">
+                        <label class="text-inverse font-12 ">SELECT CITY<span class="text-danger">*</span></label>
+                        <select ngModel class=" form-control"  formControlName="city"  [ngClass]="{ 'is-invalid': submitted && f['city'].errors }">
+                          <!-- <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter city near by..." formControlName="city"  [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" /> -->
+                          <option selected="selected" value="one">Select cities...</option>
+                          <option value="Hyderabad">Hyderabad</option>
+                          <option value="Bangalore">Bangalore</option>
+                          <option value="Chennai">Chennai</option>
+                          <option value="Madanapalli">Madanapalli</option>
+                          </select>
+                        <!-- <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter city near by..." formControlName="city"  [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" /> -->
+                        <div *ngIf="submitted && f['city'].errors" class="invalid-feedback mb">
+                            <div *ngIf="f['city'].errors['required']"> select any city.</div>
+                         </div>
+                    </div>
+                    <div class="p-4 right w-50">
+                        <label class="text-inverse font-12 ">SELECT HOSPITAL<span class="text-danger">*</span></label>
+                        <select ngModel class=" form-control"  formControlName="hospital"  [ngClass]="{ 'is-invalid': submitted && f['hospital'].errors }" >
+                          <option selected="selected" value="one">Select hospitalname...</option>
+                          <option value="Sims">Sims</option>
+                          <option value="Apollo">Apollo</option>
+                          <option value="General Life Hospital">General Life Hospital</option>
+                          <option value="Rajiv Gandhi Hospital">Rajiv Gandhi Hospital</option>
+                          </select>
+                        <!-- <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter near by hospital" formControlName="hospital"  [ngClass]="{ 'is-invalid': submitted && f.fname.errors }"  /> -->
+                        <div *ngIf="submitted && f['hospital'].errors" class="invalid-feedback mb">
+                            <div *ngIf="f['hospital'].errors['required']"> Select any hospital.</div>
+                         </div>
+                    </div>
+                    </div>
+                    <div class="form-row border-bottom">
+                      <div class="p-4 left border-right w-50">
+                          <label class="text-inverse font-12 ">SELECT DOCTOR<span class="text-danger">*</span></label>
+                          <select ngModel class="form-control"  formControlName="doctor"  [ngClass]="{ 'is-invalid': submitted && f['doctor'].errors }" >
+                            <option selected="selected" value="one">Select Doctor...</option>
+                            <option value="Dr.Kathikeya">Dr.Kathikeya</option>
+                            <option value="Dr Chitra">Dr Chitra</option>
+                            <option value="Dr.Raj kumar">Dr.Raj kumar</option>
+                            <option value="Dr.Priya">Dr.Priya</option>
+                            </select>
+                          <!-- <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter city near by..." formControlName="city"  [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" /> -->
+                          <div *ngIf="submitted && f['doctor'].errors" class="invalid-feedback mb">
+                              <div *ngIf="f['doctor'].errors['required']"> select any Doctor.</div>
+                           </div>
+                      </div>
+                      <div class="p-4 right w-50">
+                          <label class="text-inverse font-12 text-uppercase">Select Slot<span class="text-danger">*</span></label>
+                          <select ngModel class=" form-control"  formControlName="slot"  [ngClass]="{ 'is-invalid': submitted && f['slot'].errors }" >
+                            <option selected="selected" value="one">Select Timings...</option>
+                            <option value="9:00 AM-12:00 PM">9:00 AM-12:00 PM</option>
+                            <option value="12:00 PM-3:00 PM">12:00 PM-3:00 PM</option>
+                            <option value="3:00 PM-6:00 PM">3:00 PM-6:00 PM</option>
+                            <option value="6:00 PM-9:00 PM">6:00 PM-9:00 PM</option>
+                            </select>
+                          <!-- <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter near by hospital" formControlName="hospital"  [ngClass]="{ 'is-invalid': submitted && f.fname.errors }"  /> -->
+                          <div *ngIf="submitted && f['slot'].errors" class="invalid-feedback mb">
+                              <div *ngIf="f['slot'].errors['required']"> Select any slot.</div>
+                           </div>
+                      </div>
+                      </div>
+                    <div class="form-row border-bottom">
+                        <div ngModel class="p-4 left border-right w-50 ">
+                            <div>Gender</div>
+                            <div>
+                              <input type="radio" class="form-check-input" id="male" value="Male" formControlName="gender"/> 
+                              <label for="male" class="form-check-label">Male</label>
+                            </div>
+                            <div>
+                              <input type="radio" class="form-check-input" id="female" value="Female" formControlName="gender"/> 
+                              <label for="female" class="form-check-label">Female</label>
+                            </div>
+                            
+                          </div>
+                        <div class="p-4 right w-50">
+                            <label class="text-inverse font-12 text-uppercase">Age<span class="text-danger">*</span></label>
+                            <input type="text" ngModel class="border-0 p-0 font-14 form-control" placeholder="Enter your Age" formControlName="age"  [ngClass]="{ 'is-invalid': submitted && f['age'].errors }" />
+                            <div *ngIf="submitted && f['age'].errors" class="invalid-feedback mb">
+                                <div *ngIf="f['age'].errors['required']">Age is required.</div>
+                             </div>
+                            </div>
+                            
+                            <div class="form-row border-top p-4 position-relative">
+                            <h6 class="text-inverse font-12 text-uppercase">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Appointment Booking Charges : 599/- </h6>
+                            <!-- <div class="input-group date">
+                                <input type="date" ngModel class="border-0 p-0 font-14 form-control" id="dp" placeholder="Select the Appointment Date" formControlName="booking"  [ngClass]="{ 'is-invalid': submitted && f['date'].errors }" />
+                                <div *ngIf="submitted && f['date'].errors" class="invalid-feedback mb">
+                                    <div *ngIf="f['date'].errors['required']">Date is required.</div>
+                                 </div>
+                            </div> -->
+                            </div>
+                            
+                    </div>
+                  <div>
+                  <button  type="submit" class="w-100 m-0 border-0 py-4 font-14 font-weight-medium btn btn-danger-gradiant btn-block position-relative rounded-0 text-center text-white text-uppercase">
+                    Book Your Appointment Now
+                                  </button>
+                                 
+                  </div>
+              </div>
+              </div>
+          </div>
+          </form>  
+      </div>
+    </div>
+  </div>
